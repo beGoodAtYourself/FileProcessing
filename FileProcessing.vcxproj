@@ -11,13 +11,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F19D1CD0-7BC5-35BD-B797-D257E43E8F0A}</ProjectGuid>
+    <ProjectGuid>{870C8C5C-A072-3919-A8C8-FC8CB41339E1}</ProjectGuid>
     <RootNamespace>FileProcessing</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolSet>v120</PlatformToolSet>
     <OutputDirectory>Output\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
@@ -26,7 +26,7 @@
     <PrimaryOutput>FileProcessing</PrimaryOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolSet>v120</PlatformToolSet>
     <OutputDirectory>Output\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
@@ -56,7 +56,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;..\..\qt\5.6.3\msvc2013_64\include;..\..\qt\5.6.3\msvc2013_64\include\QtWidgets;..\..\qt\5.6.3\msvc2013_64\include\QtGui;..\..\qt\5.6.3\msvc2013_64\include\QtANGLE;..\..\qt\5.6.3\msvc2013_64\include\QtCore;release;..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013;.\Depends\heif\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;.;./../../qt/5.6.3/msvc2013_64/include;./../../qt/5.6.3/msvc2013_64/include/QtWidgets;./../../qt/5.6.3/msvc2013_64/include/QtGui;./../../qt/5.6.3/msvc2013_64/include/QtANGLE;./../../qt/5.6.3/msvc2013_64/include/QtCore;release;./../../qt/5.6.3/msvc2013_64/mkspecs/win32-msvc2013;Depends\heif\include;..\..\QT5.8.0\5.8\MSVC2013_64\include;..\..\QT5.8.0\5.8\MSVC2013_64\include\QtGui;..\..\QT5.8.0\5.8\MSVC2013_64\include\QtANGLE;..\..\QT5.8.0\5.8\MSVC2013_64\include\QtCore;release;..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\win32-msvc2013;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:strictStrings -w34100 -w34189 -w44996 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>release\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -64,7 +64,7 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;_CRT_SECURE_NO_WARNINGS;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;_WINDOWS;WIN64;_CRT_SECURE_NO_WARNINGS;QT_WIDGETS_LIB;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -74,8 +74,8 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(QTDIR)\lib\qtmain.lib;shell32.lib;$(QTDIR)\lib\Qt5Widgets.lib;$(QTDIR)\lib\Qt5Gui.lib;$(QTDIR)\lib\Qt5Core.lib;heif.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\utils\my_sql\my_sql\lib;C:\utils\postgresql\pgsql\lib;$(QTDIR)\lib;.\Depends\heif\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>D:\QT5.8.0\5.8\MSVC2013_64\lib\qtmain.lib;shell32.lib;Depends\heif\lib\x64\heif.lib;D:\QT5.8.0\5.8\MSVC2013_64\lib\Qt5Widgets.lib;D:\QT5.8.0\5.8\MSVC2013_64\lib\Qt5Gui.lib;D:\QT5.8.0\5.8\MSVC2013_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\QT5.8.0\5.8\MSVC2013_64\lib;C:\utils\my_sql\my_sql\lib;C:\utils\postgresql\pgsql\lib;$(QTDIR)\lib;Depends\heif\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -92,12 +92,12 @@
       <WarningLevel>0</WarningLevel>
     </Midl>
     <ResourceCompile>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;_CRT_SECURE_NO_WARNINGS;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;_WINDOWS;WIN64;_CRT_SECURE_NO_WARNINGS;QT_WIDGETS_LIB;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;..\..\qt\5.6.3\msvc2013_64\include;..\..\qt\5.6.3\msvc2013_64\include\QtWidgets;..\..\qt\5.6.3\msvc2013_64\include\QtGui;..\..\qt\5.6.3\msvc2013_64\include\QtANGLE;..\..\qt\5.6.3\msvc2013_64\include\QtCore;debug;..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013;.\Depends\heif\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;.;./../../qt/5.6.3/msvc2013_64/include;./../../qt/5.6.3/msvc2013_64/include/QtWidgets;./../../qt/5.6.3/msvc2013_64/include/QtGui;./../../qt/5.6.3/msvc2013_64/include/QtANGLE;./../../qt/5.6.3/msvc2013_64/include/QtCore;release;./../../qt/5.6.3/msvc2013_64/mkspecs/win32-msvc2013;Depends\heif\include;..\..\QT5.8.0\5.8\MSVC2013_64\include;..\..\QT5.8.0\5.8\MSVC2013_64\include\QtGui;..\..\QT5.8.0\5.8\MSVC2013_64\include\QtANGLE;..\..\QT5.8.0\5.8\MSVC2013_64\include\QtCore;debug;..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\win32-msvc2013;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-w34100 -w34189 -w44996 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>debug\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -105,7 +105,7 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;_CRT_SECURE_NO_WARNINGS;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;_WINDOWS;WIN64;_CRT_SECURE_NO_WARNINGS;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -115,8 +115,8 @@
       <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(QTDIR)\lib\qtmaind.lib;shell32.lib;$(QTDIR)\lib\Qt5Widgetsd.lib;$(QTDIR)\lib\Qt5Guid.lib;$(QTDIR)\lib\Qt5Cored.lib;libheif.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\utils\my_sql\my_sql\lib;C:\utils\postgresql\pgsql\lib;$(QTDIR)\lib;.\Depends\heif\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>D:\QT5.8.0\5.8\MSVC2013_64\lib\qtmaind.lib;shell32.lib;Depends\heif\lib\x64\heif.lib;D:\QT5.8.0\5.8\MSVC2013_64\lib\Qt5Widgetsd.lib;D:\QT5.8.0\5.8\MSVC2013_64\lib\Qt5Guid.lib;D:\QT5.8.0\5.8\MSVC2013_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\QT5.8.0\5.8\MSVC2013_64\lib;C:\utils\my_sql\my_sql\lib;C:\utils\postgresql\pgsql\lib;$(QTDIR)\lib;Depends\heif\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -132,20 +132,20 @@
       <WarningLevel>0</WarningLevel>
     </Midl>
     <ResourceCompile>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;_CRT_SECURE_NO_WARNINGS;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;_WINDOWS;WIN64;_CRT_SECURE_NO_WARNINGS;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Debug\moc_MainWindow.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="Debug\moc_SplitWorker.cpp">
+    <ClCompile Include="Debug\moc_ImageConverterPanel.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_ImageConverterWorker.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Debug\moc_ImageConverterPanel.cpp">
+    <ClCompile Include="Debug\moc_MainWindow.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_SplitWorker.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="FileSplitterCore.cpp" />
@@ -155,24 +155,24 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="HeicDecoder.cpp" />
+    <ClCompile Include="HeicEncoder.cpp" />
+    <ClCompile Include="ImageConverterEngine.cpp" />
+    <ClCompile Include="ImageConverterPanel.cpp" />
+    <ClCompile Include="ImageConverterWorker.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="ParallelSplitCoordinator.cpp" />
     <ClCompile Include="ParallelSplitWorker.cpp" />
-    <ClCompile Include="ImageConverterEngine.cpp" />
-    <ClCompile Include="ImageConverterWorker.cpp" />
-    <ClCompile Include="ImageConverterPanel.cpp" />
-    <ClCompile Include="HeicDecoder.cpp" />
-    <ClCompile Include="HeicEncoder.cpp" />
-    <ClCompile Include="Release\moc_MainWindow.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="Release\moc_SplitWorker.cpp">
+    <ClCompile Include="Release\moc_ImageConverterPanel.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_ImageConverterWorker.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Release\moc_ImageConverterPanel.cpp">
+    <ClCompile Include="Release\moc_MainWindow.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Release\moc_SplitWorker.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="SplitWorker.cpp" />
@@ -180,50 +180,68 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileSplitterCore.h" />
-    <ClInclude Include="ParallelSplitCoordinator.h" />
-    <ClInclude Include="ParallelSplitWorker.h" />
-    <ClInclude Include="ImageConverterEngine.h" />
     <ClInclude Include="HeicDecoder.h" />
     <ClInclude Include="HeicEncoder.h" />
-    <CustomBuild Include="MainWindow.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing MainWindow.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\debug" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing MainWindow.h...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
-    </CustomBuild>
-    <CustomBuild Include="SplitWorker.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing SplitWorker.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\debug" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing SplitWorker.h...</Message>
+    <ClInclude Include="ImageConverterEngine.h" />
+    <CustomBuild Include="ImageConverterPanel.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_WIDGETS_LIB -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013" "-I.\Depends\heif\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtGui" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtANGLE" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtCore" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\win32-msvc2013"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing ImageConverterPanel.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013" "-I.\Depends\heif\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtGui" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtANGLE" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtCore" "-I.\debug" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\win32-msvc2013"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing ImageConverterPanel.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="ImageConverterWorker.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_WIDGETS_LIB -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013" "-I.\Depends\heif\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtGui" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtANGLE" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtCore" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\win32-msvc2013"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing ImageConverterWorker.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\debug" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013" "-I.\Depends\heif\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtGui" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtANGLE" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtCore" "-I.\debug" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\win32-msvc2013"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing ImageConverterWorker.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="ImageConverterPanel.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing ImageConverterPanel.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\debug" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing ImageConverterPanel.h...</Message>
+    <CustomBuild Include="MainWindow.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_WIDGETS_LIB -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013" "-I.\Depends\heif\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtGui" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtANGLE" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtCore" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\win32-msvc2013"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing MainWindow.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013" "-I.\Depends\heif\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtGui" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtANGLE" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtCore" "-I.\debug" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\win32-msvc2013"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing MainWindow.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+    </CustomBuild>
+    <ClInclude Include="ParallelSplitCoordinator.h" />
+    <ClInclude Include="ParallelSplitWorker.h" />
+    <CustomBuild Include="SplitWorker.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_WIDGETS_LIB -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013" "-I.\Depends\heif\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtGui" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtANGLE" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtCore" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\win32-msvc2013"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing SplitWorker.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -D_CRT_SECURE_NO_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB "-I." "-I.\..\..\qt\5.6.3\msvc2013_64\include" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtGui" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\5.6.3\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\5.6.3\msvc2013_64\mkspecs\win32-msvc2013" "-I.\Depends\heif\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtGui" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtANGLE" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\include\QtCore" "-I.\debug" "-I.\..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\win32-msvc2013"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing SplitWorker.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zi -MDd -GR -W3 -w34100 -w34189 -w44996 -E -Za ..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -O2 -MD -Zc:strictStrings -GR -W3 -w34100 -w34189 -w44996 -E -Za ..\..\QT5.8.0\5.8\MSVC2013_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -243,14 +261,11 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="app.rc" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" Qt5Version_x0020_x64="QT5.6.3_64" />
+      <UserProperties UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" Qt5Version_x0020_x64="Qt5.8.0_64" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

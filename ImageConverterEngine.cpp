@@ -1,9 +1,9 @@
-/**
+﻿/**
  * @file ImageConverterEngine.cpp
  * @brief 图片格式转换引擎核心类实现
  *
  * 实现基于 Qt QImage 的图片格式转换功能。
- * 支持 BMP、JPEG、PNG、ICO、HEIC 五种格式之间的相互转换。
+ * 支持 BMP、JPEG、PNG、ICO、HEIC 互转，以及内嵌位图的 SVG 导出。
  * HEIC 格式通过 libheif 库实现编解码。
  */
 
@@ -14,6 +14,9 @@
 #include <QDir>
 #include <QImageReader>
 #include <QImageWriter>
+#include <QBuffer>
+#include <QSaveFile>
+#include <QXmlStreamWriter>
 
 // ============================================================================
 // 构造 / 析构
@@ -189,7 +192,7 @@ int ImageConverterEngine::convert()
  * HEIC 格式需要特殊处理：
  *   - 读取时使用 HeicDecoder 解码
  *   - 写入时使用 HeicEncoder 编码
- * 其他格式使用 Qt 原生 QImageReader/QImageWriter
+ * SVG 输出将解码图片内嵌为 PNG，其他格式使用 QImageReader/QImageWriter。
  */
 bool ImageConverterEngine::convertSingleFile(const QString& sourcePath, const QString& outputPath)
 {
@@ -238,6 +241,11 @@ bool ImageConverterEngine::convertSingleFile(const QString& sourcePath, const QS
     }
 
     // 保存为目标格式
+    if (m_targetFormat == FORMAT_SVG)
+    {
+        return saveAsSvg(image, outputPath);
+    }
+
     if (m_targetFormat == FORMAT_HEIC)
     {
         // HEIC 格式使用 HeicEncoder 编码
@@ -275,6 +283,7 @@ bool ImageConverterEngine::convertSingleFile(const QString& sourcePath, const QS
         writer.setFormat("ICO");
         break;
     case FORMAT_HEIC:
+    case FORMAT_SVG:
         // 已在上方处理
         break;
     }
@@ -287,6 +296,82 @@ bool ImageConverterEngine::convertSingleFile(const QString& sourcePath, const QS
         return false;
     }
 
+    return true;
+}
+
+bool ImageConverterEngine::saveAsSvg(const QImage& image, const QString& outputPath) const
+{
+    if (image.isNull())
+    {
+        log(QString("[ERROR] Cannot encode SVG with an empty image: %1").arg(outputPath));
+        return false;
+    }
+
+    QByteArray pngData;
+    QBuffer buffer(&pngData);
+    if (!buffer.open(QIODevice::WriteOnly))
+    {
+        log(QString("[ERROR] Failed to open PNG buffer for SVG: %1 (%2)")
+            .arg(outputPath).arg(buffer.errorString()));
+        return false;
+    }
+
+    // PNG 无损保存解码内容，不使用 JPEG/HEIC 质量参数。
+    QImageWriter pngWriter(&buffer, "PNG");
+    if (!pngWriter.write(image))
+    {
+        log(QString("[ERROR] Failed to encode PNG for SVG: %1 (%2)")
+            .arg(outputPath).arg(pngWriter.errorString()));
+        return false;
+    }
+    buffer.close();
+
+    QSaveFile output(outputPath);
+    output.setDirectWriteFallback(false);
+    if (!output.open(QIODevice::WriteOnly))
+    {
+        log(QString("[ERROR] Failed to open SVG output: %1 (%2)")
+            .arg(outputPath).arg(output.errorString()));
+        return false;
+    }
+
+    const QString width = QString::number(image.width());
+    const QString height = QString::number(image.height());
+    const QString xlinkNamespace = "http://www.w3.org/1999/xlink";
+    QXmlStreamWriter xml(&output);
+    xml.setAutoFormatting(true);
+    xml.writeStartDocument();
+    xml.writeStartElement("svg");
+    xml.writeDefaultNamespace("http://www.w3.org/2000/svg");
+    xml.writeNamespace(xlinkNamespace, "xlink");
+    xml.writeAttribute("version", "1.1");
+    xml.writeAttribute("width", width);
+    xml.writeAttribute("height", height);
+    xml.writeAttribute("viewBox", QString("0 0 %1 %2").arg(width).arg(height));
+    xml.writeEmptyElement("image");
+    xml.writeAttribute("x", "0");
+    xml.writeAttribute("y", "0");
+    xml.writeAttribute("width", width);
+    xml.writeAttribute("height", height);
+    xml.writeAttribute(xlinkNamespace, "href",
+        QString("data:image/png;base64,") + QString::fromLatin1(pngData.toBase64()));
+    xml.writeEndElement();
+    xml.writeEndDocument();
+
+    if (xml.hasError() || output.error() != QFileDevice::NoError)
+    {
+        log(QString("[ERROR] Failed to write SVG: %1 (%2)")
+            .arg(outputPath).arg(output.errorString()));
+        output.cancelWriting();
+        return false;
+    }
+
+    if (!output.commit())
+    {
+        log(QString("[ERROR] Failed to commit SVG output: %1 (%2)")
+            .arg(outputPath).arg(output.errorString()));
+        return false;
+    }
     return true;
 }
 
@@ -332,6 +417,8 @@ QString ImageConverterEngine::getFormatExtension(ImageFormat format)
         return "ico";
     case FORMAT_HEIC:
         return "heic";
+    case FORMAT_SVG:
+        return "svg";
     default:
         return "jpg";
     }
@@ -364,6 +451,8 @@ QString ImageConverterEngine::getFormatName(ImageFormat format)
         return "ICO";
     case FORMAT_HEIC:
         return "HEIC";
+    case FORMAT_SVG:
+        return "SVG";
     default:
         return "Unknown";
     }

@@ -3,6 +3,7 @@
 # ------------------------------------------------------
 
 TEMPLATE = app
+QT += widgets
 TARGET = FileProcessing
 DESTDIR = ./Output
 CONFIG += release

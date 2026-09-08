@@ -1,9 +1,9 @@
-/**
+﻿/**
  * @file ImageConverterEngine.h
  * @brief 图片格式转换引擎核心类声明
  *
  * ImageConverterEngine 封装了图片格式转换的核心逻辑，与 UI 完全解耦。
- * 支持 BMP、JPEG、PNG、ICO、HEIC 五种格式之间的相互转换。
+ * 支持 BMP、JPEG、PNG、ICO、HEIC 互转，以及内嵌位图的 SVG 导出。
  *
  * 核心特性：
  *   - 基于 Qt QImage 实现，支持多种图片格式
@@ -29,7 +29,8 @@ enum ImageFormat
     FORMAT_JPEG = 1,
     FORMAT_PNG = 2,
     FORMAT_ICO = 3,
-    FORMAT_HEIC = 4
+    FORMAT_HEIC = 4,
+    FORMAT_SVG = 5          ///< 仅输出：内嵌 PNG 位图的 SVG
 };
 
 /**
@@ -211,6 +212,11 @@ private:
      * @return 是否成功
      */
     bool convertSingleFile(const QString& sourcePath, const QString& outputPath);
+
+    /**
+     * @brief 将解码图片内嵌为自包含 SVG，完整写入后才替换目标文件
+     */
+    bool saveAsSvg(const QImage& image, const QString& outputPath) const;
 
     /**
      * @brief 输出日志

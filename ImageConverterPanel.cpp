@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file ImageConverterPanel.cpp
  * @brief 图片转换面板实现
  *
@@ -176,6 +176,7 @@ QWidget* ImageConverterPanel::createSettingsGroup()
     m_formatCombo->addItem("PNG", (int)FORMAT_PNG);
     m_formatCombo->addItem("ICO", (int)FORMAT_ICO);
     m_formatCombo->addItem("HEIC", (int)FORMAT_HEIC);
+    m_formatCombo->addItem("SVG", (int)FORMAT_SVG);
     m_formatCombo->setCurrentIndex(1);  // 默认 JPEG
     layout->addWidget(m_formatCombo, 0, 1);
 
@@ -198,9 +199,14 @@ QWidget* ImageConverterPanel::createSettingsGroup()
     m_browseOutputBtn->setFixedWidth(90);
     layout->addWidget(m_browseOutputBtn, 1, 3);
 
+    m_svgHintLabel = new QLabel(tr("SVG preserves the original image. Zoom clarity is limited by the original resolution."));
+    m_svgHintLabel->setWordWrap(true);
+    m_svgHintLabel->setVisible(false);
+    layout->addWidget(m_svgHintLabel, 2, 0, 1, 4);
+
     // 覆盖选项
     m_overwriteCheck = new QCheckBox(tr("Overwrite existing files"));
-    layout->addWidget(m_overwriteCheck, 2, 0, 1, 4);
+    layout->addWidget(m_overwriteCheck, 3, 0, 1, 4);
 
     return settingsGroup;
 }
@@ -377,6 +383,7 @@ void ImageConverterPanel::onFormatChanged(int index)
     
     m_qualityLabel->setVisible(showQuality);
     m_qualitySpin->setVisible(showQuality);
+    m_svgHintLabel->setVisible(format == FORMAT_SVG);
 
     // HEIC 默认质量较低（50），JPEG 默认 85
     if (format == FORMAT_HEIC && m_qualitySpin->value() > 100)

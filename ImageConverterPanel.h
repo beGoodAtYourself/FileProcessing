@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file ImageConverterPanel.h
  * @brief 图片转换面板声明
  *
@@ -33,7 +33,7 @@ class ImageConverterWorker;
 /**
  * @brief 图片转换面板类
  *
- * 提供 BMP、JPEG、PNG、ICO、HEIC 五种格式之间的相互转换功能。
+ * 提供 BMP、JPEG、PNG、ICO、HEIC 互转，以及内嵌位图的 SVG 导出。
  * 支持单文件和批量转换两种模式。
  */
 class ImageConverterPanel : public QMainWindow
@@ -128,6 +128,7 @@ private:
     QComboBox* m_formatCombo;           ///< 目标格式下拉框
     QSpinBox* m_qualitySpin;            ///< JPEG质量输入框
     QLabel* m_qualityLabel;             ///< 质量标签
+    QLabel* m_svgHintLabel;             ///< SVG 位图清晰度说明
     QLineEdit* m_outputDirEdit;         ///< 输出目录输入框
     QPushButton* m_browseOutputBtn;     ///< 输出目录浏览按钮
     QCheckBox* m_overwriteCheck;        ///< 覆盖复选框
